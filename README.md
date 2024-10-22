@@ -1,9 +1,17 @@
-# Landing Page Project
+# Udacity Landing Page
 
-## Instructions
+## Turning a static landing page into a responsive one
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+### Usage
+Clicking on any section in the nav scrolls to it's corresponding part of the page
 
-To get started, open `js/app.js` and start building out the app's functionality
+Added a modal box for fun
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+### Development
+First: attach the dom content to it's correspondant in JS
+Second: coded the function that creates the nav sections
+Third: created and added the needed tags to the nav sections using JS
+Fourth: added a modal box that notifies you that you clicked the nav items
+
+### contributes
+A couple mdn sources and youtube lessons

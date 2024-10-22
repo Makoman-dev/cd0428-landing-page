@@ -1,62 +1,64 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
+// universal declarations
+const navigation = document.getElementById("navbar__menu");
+const modalBtn = document.getElementById("modal-btn");
+const modal = document.querySelector(".modal");
+const closeBtn = document.querySelector(".close-btn");
 
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
+// created the objects to be used for each section obtion
+const navigationData = [
+  {
+    label: "Section 1",
+    href: "#section1",
+  },
+  {
+    label: "Section 2",
+    href: "#section2",
+  },
+  {
+    label: "Section 3",
+    href: "#section3",
+  },
+  {
+    label: "Section 4",
+    href: "#section4",
+  },
+];
 
-/**
- * Define Global Variables
- * 
-*/
+/// creating the needed tags for the navbar items 
 
+const navList = document.getElementById("navbar__list");
+for (const item of navigationData) {
+  const listItem = document.createElement("li");
+  const link = document.createElement("a");
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
+  // linking the created tags to the objects above
 
+  link.textContent = item.label;
+  link.href = item.href;
 
+  //using preventDefault to scroll the clicked section into view
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const targetSection = document.getElementById(link.hash.substr(1));
+    targetSection.scrollIntoView({ behavior: "smooth" });
+  });
 
-// build the nav
+  // added a modal box that pops up on clicking the navbar items for fun :)
 
+  link.onclick = function () {
+    modal.style.display = "block";
+  };
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+  window.onclick = function (e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
+  // adding the fully created li into the ul
+  listItem.append(link);
+  navList.appendChild(listItem);
+}
