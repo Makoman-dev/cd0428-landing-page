@@ -73,6 +73,12 @@ section {
   transition: ease 0.3s all;
 }
 
+.active {
+  background: #333;
+  color: #fff !important;
+  transition: ease 0.3s all;
+}
+
 .modal {
   display: none;
   position: fixed;
