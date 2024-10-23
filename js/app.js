@@ -3,7 +3,7 @@ const navigation = document.getElementById("navbar__menu");
 const modalBtn = document.getElementById("modal-btn");
 const modal = document.querySelector(".modal");
 const closeBtn = document.querySelector(".close-btn");
-const sections = document.querySelectorAll('.section');
+const sections = document.querySelectorAll(".section");
 
 // created the objects to be used for each section obtion
 const navigationData = [
@@ -25,7 +25,7 @@ const navigationData = [
   },
 ];
 
-/// creating the needed tags for the navbar items 
+/// creating the needed tags for the navbar items
 
 const navList = document.getElementById("navbar__list");
 for (const item of navigationData) {
@@ -64,19 +64,20 @@ for (const item of navigationData) {
   navList.appendChild(listItem);
 }
 
-let sectionInViewport = function(section) {
+let sectionInViewport = function (section) {
   let distance = section.getBoundingClientRect();
   return (
     distance.top >= 0 &&
     distance.left >= 0 &&
-    distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    distance.right <= (window.innerWidth || document.documentElement.clientWidth)   
-
+    distance.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <=
+      (window.innerWidth || document.documentElement.clientWidth)
   );
 };
 
-window.addEventListener('scroll', function() {
-  sections.forEach(section => {
+window.addEventListener("scroll", function () {
+  sections.forEach((section) => {
     if (sectionInViewport(section)) {
       const sectionHeight = section.getBoundingClientRect().height;
       const viewportHeight = window.innerHeight;
@@ -90,8 +91,7 @@ window.addEventListener('scroll', function() {
     } else {
       section.classList.remove("your-active-class");
       const navItem = document.querySelector(`nav a[href="#${section.id}"]`);
-        navItem.classList.remove("active");
+      navItem.classList.remove("active");
     }
   });
-}, );
-
+});
